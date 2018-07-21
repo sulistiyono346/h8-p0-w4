@@ -2,12 +2,12 @@ console.log("1. Solve Problems array  angkaPrima(angka)");
 
   function fpb(angka1, angka2) {
     var temp = [];
-      for (i = 0; i<angka2; i++){
+      for (var i = 0; i<angka2; i++){
         if (angka1 % [i] === 0 && angka2 %[i] === 0){
           temp = i;
         }
         }
-        return temp;
+        console.log( temp);;
   }
 
   // TEST CASES

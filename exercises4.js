@@ -6,7 +6,7 @@ function cariModus(arr) {
     if(position === -1){
     nilai.push(arr[i]);
     temp.push(1);
-    }else { 
+    }else {
       temp[position]++    ;
     }
   }
@@ -22,7 +22,7 @@ function cariModus(arr) {
   }else if(nilai.length <= 1 ){
     return -1;
   }else {
-  var mode = nilai[biggestPosition]; //
+  var mode = nilai[biggestPosition];
 return mode;
 }
 }
