@@ -1,4 +1,12 @@
 function totalDigitRekursif(angka) {
+  //   var temp=0
+  //   var stringnum=String(angka)
+  //   for (var i = 0; i < stringnum.length; i++) {
+  //     temp=temp+parseInt(stringnum[i])
+  //   }
+  //   return temp
+  // }
+
   var tempAngka = String(angka);
   if (tempAngka.length === 1){
     return angka;

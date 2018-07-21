@@ -1,4 +1,11 @@
 function makanTerusRekursif(waktu) {
+  // var time=waktu
+  // var count=0
+  // for (var i =0; i <time; i=i+15) {
+  //   count++
+  // }
+  // console.log(count);
+
   var temp = 0
 
   if (waktu === 0) {
