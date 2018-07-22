@@ -1,61 +1,64 @@
 function changeVocals (str) {
-  var strSplit = str.split('')
-  var alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  var vocal = 'aiueoAIUEO'
-  var index
-  var temp = []
-
-for (var i = 0; i < strSplit.length; i++) {
-    for (var j = 0; j < vocal.length; j++) {
-      if (strSplit[i] === vocal[j]) {
-        index = alphabet.indexOf(strSplit[i]) + 1
-        strSplit[i] = alphabet[index]
-      }
+  var alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  var temp = ''
+  for (var i = 0; i < str.length; i++){
+    switch (str[i]){
+      case 'a' : {temp = temp + alphabet[1];break;}
+      case 'A' : {temp = temp + alphabet[1].toUpperCase();break;}
+      case 'i' : {temp = temp + alphabet[9];break;}
+      case 'I' : {temp = temp + alphabet[9].toUpperCase();break;}
+      case 'u' : {temp = temp + alphabet[21];break;}
+      case 'U' : {temp = temp + alphabet[21].toUpperCase();break;}
+      case 'e' : {temp = temp + alphabet[5];break;}
+      case 'E' : {temp = temp + alphabet[5].toUpperCase();break;}
+      case 'o' : {temp = temp + alphabet[15];break;}
+      case 'O' : {temp = temp + alphabet[15].toUpperCase();break;}
+      default : {temp += str[i];}
     }
-    temp.push(strSplit[i])
+  }
+return temp
+}
+
+function reverseWord (str) {
+  var temp=""
+  for (var i = str.length-1; i >=0; i--) {
+    temp+=str[i]
   }
   return temp
 }
-function reverseWord (str) {
-  var reverse = []
-  for (var i = str.length - 1; i > 0; i--) {
-    reverse.push(str[i])
-  }
-  return reverse
-}
 
 function setLowerUpperCase (str) {
-  var temp = ''
-  for (var i = 0; i < str.length; i++) {
-    if (str[i] === str[i].toUpperCase()) {
-      temp += str[i]
-    } else if (str[i] !== str[i].toUpperCase()) {
-      temp += str[i].toUpperCase()
+  var temp=""
+  for (var i=0; i<str.length; i++){
+    if (str[i]===str[i].toUpperCase()) {
+      temp+=(str[i].toLowerCase())
+    }
+    else {
+      temp+=(str[i].toUpperCase())
     }
   }
   return temp
 }
 
 function removeSpaces (str) {
-  var temp = ''
-  for (var i = 0; i < str.length; i++) {
-    if (str[i] !== ' ') {
-      temp += str[i]
+  var temp = ""
+  for (var i = 0; i < str.length; i++){
+    if (str[i] !== " "){
+      temp+= str[i]
     }
   }
   return temp
 }
 
 function passwordGenerator (name) {
-  if (name.length < 5) {
+  if (name.length < 5){
     return 'Minimal karakter yang diinputkan adalah 5 karakter'
   } else {
-      var ubahVocal = changeVocals(name)
-      var balikHuruf = reverseWord(ubahVocal)
-      var setUpperCase = setLowerUpperCase(balikHuruf)
-      var hapusSpasi = removeSpaces(setUpperCase)
-
-      return hapusSpasi
+  var listChangeVoc = changeVocals (name)
+  var listReverse = reverseWord (listChangeVoc)
+  var listSetLowUp = setLowerUpperCase (listReverse)
+  var listRemoveSpace = removeSpaces (listSetLowUp)
+  return listRemoveSpace
   }
 }
 console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
